@@ -19,6 +19,7 @@ class _CityScreenState extends State<CityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -60,9 +61,7 @@ class _CityScreenState extends State<CityScreen> {
                     http.Response response = await http.get(Uri.parse(
                         '$apiaddress?q=$cityName&appid=$apikey&units=metric'));
                     if (response.statusCode == 200) {
-                     
-                        recentCity().addcity(cityName);
-                     
+                      recentCity().addcity(cityName);
 
                       Navigator.pop(context, cityName);
                     } else {
@@ -192,7 +191,6 @@ class _CityScreenState extends State<CityScreen> {
                         ),
                       ]),
                 ),
-                
               ],
             ),
           ),
